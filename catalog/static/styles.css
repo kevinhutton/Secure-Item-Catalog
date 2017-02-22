@@ -1,0 +1,53 @@
+* {
+	font-family: "Palatino Linotype";
+	font-weight: 1000;
+	padding:5px;
+	margin-bottom: 5px;
+}
+
+.row {
+	width: 100%;
+}
+.col-categories {
+	width: 50%;
+	display: inline-block;
+	float: left;
+
+}
+.col-items {
+	width: 50%;
+	display: inline-block;
+
+}
+.col-title {
+	background-color: #98FB98;
+	display: inline-block;
+	float: center;
+	width: 100%;
+
+}
+.col-authentication-menu {
+	width: 100%;
+	display: inline-block;
+	float: right;
+
+}
+.container {
+	display: flex-box;
+	flex-wrap: wrap;
+	width: 100%;
+ }
+.button {
+	border: ridge;
+	margin-right: 10px;
+	font-weight: bold;
+ }
+ .flash-message {
+   font-color: red;
+ }
+ .item-name {
+ 	font-weight: bold;
+ }
+ .item-description {
+ 	font-style: italic;
+  }

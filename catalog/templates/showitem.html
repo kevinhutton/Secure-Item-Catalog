@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<h3 class="item-name">{{item.name}}</h3>
+<p class="item-description">{{item.description}}<p>
+{%if session['user_id'] == item.user_id %}
+<a href="{{ url_for('editItem', item_id=item.id) }}">edit</a>
+<a href="{{ url_for('deleteItem', item_id=item.id) }}">delete</a>
+{% endif %}
+{% endblock %}
