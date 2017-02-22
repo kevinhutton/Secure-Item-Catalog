@@ -16,13 +16,13 @@ app = Flask(__name__)
 
 # Retrieve CLIENT ID from client_secrets
 CLIENT_ID = json.loads(
-    open('client_secrets.json', 'r').read())['web']['client_id']
+    open('./client_secrets.json', 'r').read())['web']['client_id']
 
 # Define application name , needed for QAuth authentication
 APPLICATION_NAME = "Catalog Application"
 
 # Connect to Database and create database session
-engine = create_engine('sqlite:///catalog.db')
+engine = create_engine('postgresql:///catalog')
 Base.metadata.bind = engine
 DBSession = sessionmaker(bind=engine)
 session = DBSession()
@@ -210,7 +210,7 @@ def gconnect():
 
     try:
         # Convert authorization code into a credentials object
-        oauth_flow = flow_from_clientsecrets('client_secrets.json', scope='')
+        oauth_flow = flow_from_clientsecrets('./client_secrets.json', scope='')
         oauth_flow.redirect_uri = 'postmessage'
         credentials = oauth_flow.step2_exchange(code)
     except FlowExchangeError:
@@ -323,6 +323,5 @@ def logout():
 
 if __name__ == '__main__':
     # Secret key to encrypt session variables
-    app.secret_key = 'california'
     app.debug = True
-    app.run(host='0.0.0.0', port=5000)
+    app.run(port=80)
