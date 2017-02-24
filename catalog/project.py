@@ -16,7 +16,7 @@ app = Flask(__name__)
 
 # Retrieve CLIENT ID from client_secrets
 CLIENT_ID = json.loads(
-    open('./client_secrets.json', 'r').read())['web']['client_id']
+    open('/var/www/html/catalog/client_secrets.json', 'r').read())['web']['client_id']
 
 # Define application name , needed for QAuth authentication
 APPLICATION_NAME = "Catalog Application"
@@ -210,7 +210,7 @@ def gconnect():
 
     try:
         # Convert authorization code into a credentials object
-        oauth_flow = flow_from_clientsecrets('./client_secrets.json', scope='')
+        oauth_flow = flow_from_clientsecrets('/var/www/html/catalog/client_secrets.json', scope='')
         oauth_flow.redirect_uri = 'postmessage'
         credentials = oauth_flow.step2_exchange(code)
     except FlowExchangeError:
