@@ -1,4 +1,10 @@
 # Udacity-Fullstack-Nanodegree-Project7
+
+The purpose of this project was to create a secure linux-based web server which hosts a catalog web application
+
+This project was done as part of the Udacity Fullstack Nanodegree program
+
+## Server Details
 ```
 Server IP: 52.39.147.159
 Website Address: http://52.39.147.159/
