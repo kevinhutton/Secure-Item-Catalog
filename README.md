@@ -51,7 +51,34 @@ sudo apt-get install postgresql
 vim /etc/postgresql/9.3/main/pg_hba.conf 
 vim /etc/init.d/postgresql restart
 
-## Add postge
+## Give postgres user password
+$ sudo su postgres -c 'psql ' 
+
+psql (9.3.15)
+Type "help" for help.
+
+postgres=# ALTER USER "postgres" WITH PASSWORD 'postgres';
 
 ## Add Catalog data
-grader@ip-10-20-24-70:~$ sudo su postgres -c 'createdb catalog'
+  grader@ip-10-20-24-70:~$  createdb -U postgres catalog
+  
+
+# Setup table structure 
+
+grader@ip-10-20-24-70:/var/www/html/catalog$ python database_setup.py
+postgres=#create user catalog with password 'catalog' ;
+postgres=# grant all  privileges on database catalog to catalog ;
+
+catalog=# grant select,insert,update,delete on table category to catalog ; 
+GRANT
+catalog=# grant select,insert,update,delete on table category_item to catalog ; 
+GRANT
+catalog=# grant select,insert,update,delete on table user to catalog ; 
+ERROR:  syntax error at or near "user"
+LINE 1: grant select,insert,update,delete on table user to catalog ;
+                                                   ^
+catalog=# grant select,insert,update,delete on table "user" to catalog ; 
+GRANT
+
+
+
