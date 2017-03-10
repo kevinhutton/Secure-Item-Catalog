@@ -21,7 +21,8 @@ SSH Port: 2200
 ```
 1) git clone https://github.com/kevinhutton/Udacity-Fullstack-Nanodegree-Project7.git
 2) cd Udacity-Fullstack-Nanodegree-Project7/
-3) ssh -i grader grader@52.39.147.159 -p 2200
+3) chmod 400 grader
+4) ssh -i grader grader@52.39.147.159 -p 2200
 ```
 ## Required Libraries and external dependencies
 ```
