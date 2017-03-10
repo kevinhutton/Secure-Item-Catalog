@@ -7,8 +7,8 @@ from sqlalchemy import create_engine
 Base = declarative_base()
 
 
-class User(Base):
-    __tablename__ = 'user'
+class Users(Base):
+    __tablename__ = 'users'
     id = Column(Integer, primary_key=True)
     name = Column(String(250), nullable=False)
     email = Column(String(250), nullable=False)
@@ -35,8 +35,8 @@ class CategoryItem(Base):
     description = Column(String(250))
     category_id = Column(Integer, ForeignKey('category.id'))
     category = relationship(Category)
-    user_id = Column(Integer, ForeignKey('user.id'))
-    user = relationship(User)
+    user_id = Column(Integer, ForeignKey('users.id'))
+    user = relationship(Users)
 
     @property
     def serialize(self):
@@ -46,5 +46,5 @@ class CategoryItem(Base):
             'id': self.id,
         }
 
-engine = create_engine('postgresql:///catalog')
+engine = create_engine('postgresql://postgres:postgres@/catalog')
 Base.metadata.create_all(engine)

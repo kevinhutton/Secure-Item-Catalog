@@ -2,9 +2,9 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-from database_setup import Category, Base, CategoryItem, User
+from database_setup import Category, Base, CategoryItem, Users
 
-engine = create_engine('postgresql:///catalog')
+engine = create_engine('postgresql://catalog:catalog@/catalog')
 Base.metadata.bind = engine
 
 DBSession = sessionmaker(bind=engine)

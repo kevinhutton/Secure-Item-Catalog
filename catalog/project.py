@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, jsonify, url_for, flash
 from sqlalchemy import create_engine, asc
 from sqlalchemy.orm import sessionmaker
-from database_setup import Base, Category, CategoryItem, User
+from database_setup import Base, Category, CategoryItem, Users
 from flask import session as login_session
 import random
 import string
@@ -22,7 +22,7 @@ CLIENT_ID = json.loads(
 APPLICATION_NAME = "Catalog Application"
 
 # Connect to Database and create database session
-engine = create_engine('postgresql:///catalog')
+engine = create_engine('postgresql://catalog:catalog@/catalog')
 Base.metadata.bind = engine
 DBSession = sessionmaker(bind=engine)
 session = DBSession()
@@ -38,22 +38,22 @@ def loginPage():
     login_session['state'] = state
     return render_template('login.html', STATE=state)
 
-# Create user in User DB using corresponding third party account information
+# Create user in Users DB using corresponding third party account information
 
 
 def createUser(login_session):
-    newUser = User(name=login_session['username'], email=login_session[
+    newUser = Users(name=login_session['username'], email=login_session[
                    'email'], picture=login_session['picture'])
     session.add(newUser)
     session.commit()
-    user = session.query(User).filter_by(email=login_session['email']).one()
+    user = session.query(Users).filter_by(email=login_session['email']).one()
     return user.id
 # Helper method to get current user email address
 
 
 def getUserID(email):
     try:
-        user = session.query(User).filter_by(email=email).one()
+        user = session.query(Users).filter_by(email=email).one()
         return user.id
     except:
         return None
