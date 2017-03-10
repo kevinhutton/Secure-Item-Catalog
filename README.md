@@ -84,12 +84,18 @@ sudo apt-get install apache2
 sudo apt-get install libapache2-mod-wsgi
 ```
 
-### Configure Apache
+### Configure Apache - Enable wsgi and prevent users from accessing .git
 ```
 DocumentRoot /var/www/html
 RedirectMatch 404 /\.git
 WSGIScriptAlias / /var/www/html/catalog/catalog.wsgi
 
+```
+### Place source code under /var/www/html/catalog/
+
+```
+1) git clone https://github.com/kevinhutton/Udacity-Fullstack-Nanodegree-Project7.git
+2) cp -a catalog /var/www/html
 ```
 
 ### Install SqlAlchemy python module
