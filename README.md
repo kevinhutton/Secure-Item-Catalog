@@ -1,31 +1,41 @@
 # Udacity-Fullstack-Nanodegree-Project7
-
+```
 Server IP: 52.39.147.159
 Website Address: http://52.39.147.159/
 SSH User to login as: grader
 SSH Key: grader
 SSH Port: 2200
+```
+## How to use site
 
+Visit 52.39.147.159 in a browser 
 ## SSH Login Instructions
 1) git clone https://github.com/kevinhutton/Udacity-Fullstack-Nanodegree-Project7.git
 2) cd Udacity-Fullstack-Nanodegree-Project7/
 3) ssh -i grader grader@52.39.147.159 -p 2200
 
-## Packages Used or Installed 
+## Required Libraries and external dependencies
 apache2
 postgresql
 ufw
 git
 Python
+SqlAlchemy Python Module
+Google OAuth2 Authentication
+Google OAuth2 Web Application API Credentials and corresponding client_secrets.json file
+Please see : https://developers.google.com/identity/protocols/OAuth2
+Google account
+
 
 
 ## Server Setup Instructions
 
 
-#Download latest packages
+### Download latest packages
+```
 sudo apt-get update
 sudo apt-get upgrade
-
+```
 ### Add Grader User
 ```
 sudo adduser grader
@@ -82,6 +92,11 @@ RedirectMatch 404 /\.git
 WSGIScriptAlias / /var/www/html/catalog/catalog.wsgi
 
 ```
+
+### Install SqlAlchemy python module
+
+pip install SQLAlchemy
+
 ### Install git and ntp
 sudo apt-get install git
 sudo apt-get install ntp
