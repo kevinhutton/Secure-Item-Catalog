@@ -6,27 +6,26 @@ SSH User to login as: grader
 SSH Key: grader
 SSH Port: 2200
 ```
-## How to use site
-
-Visit 52.39.147.159 in a browser 
+## How to access item catalog website
+```
+1) Visit http://52.39.147.159/ in your browser
+2) Login with your google account credentials in order to add/delete items from the catalog
+```
 ## SSH Login Instructions
+```
 1) git clone https://github.com/kevinhutton/Udacity-Fullstack-Nanodegree-Project7.git
 2) cd Udacity-Fullstack-Nanodegree-Project7/
 3) ssh -i grader grader@52.39.147.159 -p 2200
-
+```
 ## Required Libraries and external dependencies
-apache2
-postgresql
-ufw
-git
-Python
-SqlAlchemy Python Module
-Google OAuth2 Authentication
-Google OAuth2 Web Application API Credentials and corresponding client_secrets.json file
-Please see : https://developers.google.com/identity/protocols/OAuth2
-Google account
-
-
+```
+1) apache2
+2) postgresql
+3) ufw
+4) git
+5) Python
+6) Google OAuth2 Authentication
+```
 
 ## Server Setup Instructions
 
