@@ -1,4 +1,4 @@
-# Udacity-Fullstack-Nanodegree-Project7
+# Secure Item Catalog - Udacity-Fullstack-Nanodegree-Project7
 
 The purpose of this project was to create a secure linux-based web server which hosts a catalog web application
 
